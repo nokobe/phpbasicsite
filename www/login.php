@@ -25,9 +25,10 @@ if(isset($_POST['submit-login'])) {
   
 <html>  
 <head>  
-    <title>Login</title>  
+    <title>PBS: Login</title>  
 </head>  
 <body>  
+<?php require "nav.php" ?>
 <?php  
 if($error != "")  
 {  

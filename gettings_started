@@ -1,0 +1,5 @@
+create database pbs;
+CREATE DATABASE IF NOT EXISTS `pbs` ;
+GRANT ALL PRIVILEGES ON pbs.* TO 'pbs'@'127.0.0.1';
+grant usage on *.* to 'pbs'@'127.0.0.1' identified by '***';
+mysql5 -u pbs -D pbs -h 127.0.0.1 -p < create_db.script

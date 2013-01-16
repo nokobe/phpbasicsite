@@ -66,9 +66,10 @@ if(isset($_POST['submit-form'])) {
   
 <html>  
 <head>  
-    <title>Registration</title>  
+    <title>PBS: New User Registration</title>  
 </head>  
 <body>  
+    <?php require "nav.php" ?>
     <?php echo ($error != "") ? $error : ""; ?>  
     <form action="register.php" method="post">  
   
