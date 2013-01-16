@@ -6,7 +6,7 @@ require_once 'includes/global.inc.php';
 <html>  
 <head>  
     <title>PBS: Homepage</title>  
-<link rel="stylesheet" href="css/style.css" type="text/css" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>  
 <body>  
  <?php require "nav.php" ?>

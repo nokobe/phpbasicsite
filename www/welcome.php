@@ -15,6 +15,7 @@ $user = unserialize($_SESSION['user']);
 <html>
 <head>
     <title>PBS: Welcome <?php echo $user->username; ?></title>
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 <body>
  <?php require "nav.php" ?>

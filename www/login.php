@@ -26,6 +26,7 @@ if(isset($_POST['submit-login'])) {
 <html>  
 <head>  
     <title>PBS: Login</title>  
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>  
 <body>  
 <?php require "nav.php" ?>

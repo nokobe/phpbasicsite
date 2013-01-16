@@ -67,6 +67,7 @@ if(isset($_POST['submit-form'])) {
 <html>  
 <head>  
     <title>PBS: New User Registration</title>  
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>  
 <body>  
     <?php require "nav.php" ?>
