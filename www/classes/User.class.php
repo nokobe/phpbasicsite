@@ -1,8 +1,6 @@
 <?php  
 //User.class.php  
-  
 require_once 'DB.class.php';  
-  
   
 class User {  
   
@@ -52,7 +50,5 @@ class User {
         }  
         return true;  
     }  
-      
 }  
-  
-?>  
+?>

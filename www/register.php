@@ -8,7 +8,6 @@ $username = "";
 $password = "";  
 $password_confirm = "";  
 $email = "";  
-$error = "";  
   
 //check to see that the form has been submitted  
 if(isset($_POST['submit-form'])) {   
@@ -21,21 +20,34 @@ if(isset($_POST['submit-form'])) {
   
     //initialize variables for form validation  
     $success = true;  
+
     $userTools = new UserTools();  
   
     //validate that the form was filled out correctly  
+    if ($username === "") {
+	    $message[] = array( 'class' => 'error', 'message' => 'Please enter a username' );
+	    $success = false;
+    }
+    if ($password === "") {
+	    $message[] = array( 'class' => 'error', 'message' => 'Please enter a password' );
+	    $success = false;
+    }
     //check to see if user name already exists  
-    if($userTools->checkUsernameExists($username))  
-    {  
-        $error .= "That username is already taken.<br/> \n\r";  
+    if($userTools->checkUsernameExists($username))  {  
+        $message[] = array( 'class' => 'error', 'message' => 'That username is already in use' );
         $success = false;  
     }  
   
     //check to see if passwords match  
-    if($password != $password_confirm) {  
-        $error .= "Passwords do not match.<br/> \n\r";  
+    if($password != $password_confirm) {
+        $message[] = array( 'class' => 'error', 'message' => 'Passwords do not match' );
         $success = false;  
-    }  
+    }
+
+    if ($email === "") {
+        $message[] = array( 'class' => 'error', 'message' => 'Please enter your email address' );
+        $success = false;  
+    }
   
     if($success)  
     {  
@@ -54,8 +66,8 @@ if(isset($_POST['submit-form'])) {
         $userTools->login($username, $password);  
   
         //redirect them to a welcome page  
-        header("Location: welcome.php");  
-  
+        header("Location: welcome.php");
+	$message[] = "should not see this message!";
     }  
   
 }  
@@ -71,7 +83,6 @@ if(isset($_POST['submit-form'])) {
 </head>  
 <body>  
     <?php require "nav.php" ?>
-    <?php echo ($error != "") ? $error : ""; ?>  
     <form action="register.php" method="post">  
   
     Username: <input type="text" value="<?php echo $username; ?>" name="username" /><br/>  

@@ -3,7 +3,6 @@
   
 require_once 'includes/global.inc.php';  
   
-$error = "";  
 $username = "";  
 $password = "";  
   
@@ -18,7 +17,7 @@ if(isset($_POST['submit-login'])) {
         //successful login, redirect them to a page  
         header("Location: index.php");  
     }else{  
-        $error = "Incorrect username or password. Please try again.";  
+        $message[] = array( 'class' => 'error', 'message' => "Incorrect username or password. Please try again.");  
     }  
 }  
 ?>  
@@ -30,12 +29,6 @@ if(isset($_POST['submit-login'])) {
 </head>  
 <body>  
 <?php require "nav.php" ?>
-<?php  
-if($error != "")  
-{  
-    echo $error."<br/>";  
-}  
-?>  
     <form action="login.php" method="post">  
         Username: <input type="text" name="username" value="<?php echo $username; ?>" /><br/>  
         Password: <input type="password" name="password" value="<?php echo $password; ?>" /><br/>  

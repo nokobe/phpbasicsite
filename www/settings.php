@@ -28,7 +28,7 @@ if(isset($_POST['submit-settings'])) {
     if($password != "") {
 	    //check to see if passwords match  
 	    if($password != $password_confirm) {  
-		$message[] = "Passwords do not match";  
+		$message[] = array( 'class' => 'error', 'message' => "Passwords do not match" );  
 	    }
 	    else if ($user->hashedPassword != md5($password)) {
 		 $user->hashedPassword = md5($password);
@@ -51,7 +51,6 @@ if(isset($_POST['submit-settings'])) {
 	    $message[] = "No change";
     }
 } 
-    $message[] = "test message";
  
 //If the form wasn't submitted, or didn't validate  
 //then we show the registration form again  
@@ -61,6 +60,7 @@ if(isset($_POST['submit-settings'])) {
 <head>  
     <title>PBS: Change Settings</title>  
     <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <script language="javascript" src="js/functions.js"></script>
 </head>  
 <body>  
  <?php require "nav.php" ?>
@@ -69,10 +69,13 @@ if(isset($_POST['submit-settings'])) {
     Change Password: <input type="password" value="<?php echo $password; ?>" name="password" /><br/>  
     Change Password (confirm): <input type="password" value="<?php echo $password_confirm; ?>" name="password-confirm" /><br/>  
     E-Mail: <input type="text" value="<?php echo $email; ?>" name="email" /><br/>  
-    <input type="submit" value="Update" name="submit-settings" />  
-  
-    </form>  
-
+    <input type="submit" value="Save Changes" name="submit-settings" class="button"/>  
+<!--
+    <input type="submit" value="Delete Account" name="submit-delete" class="button"
+		onClick="return confirmSubmit()"/>
+-->
+    </form>
+    
     <a href="index.php">Return to main page</a>
 
 </body>  

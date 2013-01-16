@@ -207,3 +207,21 @@ table.tree .dir:hover {
 	margin: 0.5em;
 }
 
+.button {
+  display: block;
+  width: 115px;
+/*  height: 25px;*/
+  background: #4E9CAF;
+  padding: 5px;
+  /*
+  padding-top: 5px;
+  padding-bottom: 5px;
+  */
+	margin: 0;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  font-color: black;
+  text-decoration: none;
+}

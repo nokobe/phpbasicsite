@@ -15,7 +15,11 @@
 <div class='notices'>
 	<?php
 	    foreach ($message as $m) {
-		    echo "<div class='info'>$m</div>";
+		    if (gettype($m) == 'array') {
+			    echo "<div class=\"$m[class]\">$m[message]</div>";
+		    } else {
+			    echo "<div class='info'>$m</div>";
+		    }
 	    }
 	?>
 </div>
